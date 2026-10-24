@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#152d43">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Bilgi Notu">
+  <meta name="description" content="İnternetsiz çalışan, resmî bilgi notu hazırlama uygulaması.">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="./icons/icon-192.png">
+  <title>Bilgi Notu | Güvenli Giriş</title>
+  <style>
+    :root{color-scheme:light;--bg:#f3f5f7;--paper:#fff;--navy:#152d43;--ink:#1e2f40;--sub:#6f7b86;--line:#dee5eb;--teal:#087d73;--soft:#e6f4f1;--danger:#b23a42;--shadow:0 10px 38px rgba(20,40,60,.065);--r:17px}
+    *{box-sizing:border-box}html{min-height:100%;-webkit-text-size-adjust:100%}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.45}
+    button,input,textarea,select{font:inherit}button{cursor:pointer}button:disabled{cursor:not-allowed;opacity:.48}input,textarea,select{width:100%;border:1px solid #d4dfe7;border-radius:11px;background:#fff;color:var(--ink);padding:12px 13px;outline:none;font-size:16px}textarea{resize:vertical;min-height:110px;line-height:1.55}input:focus,textarea:focus,select:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(8,125,115,.10)}label{display:block;margin:0 0 7px;font-size:13px;font-weight:700;color:#3e5363}small,.hint{font-size:12px;color:var(--sub)}.container{max-width:1240px;margin:auto;padding:25px 20px 100px}
+    .topbar{background:var(--navy);color:#fff;padding:calc(18px + env(safe-area-inset-top)) 20px 19px}.top-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:12px}.mark{width:42px;height:42px;border:1px solid rgba(255,255,255,.22);border-radius:12px;display:grid;place-items:center;background:rgba(255,255,255,.1);font-size:24px}.brand-title{font-size:21px;font-weight:750;letter-spacing:-.4px}.brand-sub{color:#b9cbd7;font-size:12px;margin-top:1px}.status{border:1px solid rgba(255,255,255,.24);color:#d1e2e8;border-radius:999px;padding:6px 11px;font-size:12px;white-space:nowrap}
+    .intro{display:flex;justify-content:space-between;align-items:flex-end;gap:15px;margin:0 0 23px}.eyebrow{text-transform:uppercase;letter-spacing:2px;color:var(--teal);font-size:11px;font-weight:800}.intro h1{font-size:27px;line-height:1.15;letter-spacing:-.6px;margin:6px 0 8px}.intro p{color:var(--sub);font-size:14px;margin:0}.layout{display:grid;grid-template-columns:minmax(0,1.06fr) minmax(0,.94fr);align-items:start;gap:20px}.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow)}.pad{padding:24px}.card-header{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:22px}.card-header h2{margin:0;font-size:18px;letter-spacing:-.3px}.number{display:inline-grid;place-items:center;border-radius:7px;background:var(--soft);color:var(--teal);width:28px;height:28px;font-size:13px;font-weight:800;margin-right:8px}.field{margin:0 0 18px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}.sep{border:0;border-top:1px solid var(--line);margin:7px 0 20px}.field-note{font-size:12px;margin-top:5px;color:var(--sub)}.required{color:var(--danger)}.section-title{font-size:12px;letter-spacing:1px;text-transform:uppercase;font-weight:800;color:#71818e;margin:23px 0 12px}.checkline{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--ink);cursor:pointer}.checkline input{width:19px;height:19px;flex:none;margin:1px 0 0;accent-color:var(--teal)}.checkline span{flex:1}.check-wrap{background:#f7fafb;border:1px solid var(--line);padding:13px;border-radius:11px;display:grid;gap:14px}
+    .btn{border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);padding:10px 13px;font-weight:700;font-size:13px;display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:41px}.btn:hover{background:#f7fafb}.btn-primary{background:var(--teal);border-color:var(--teal);color:white}.btn-primary:hover{background:#076f67}.btn-danger{color:var(--danger)}.btn-quiet{background:transparent}.btn:focus-visible{outline:3px solid #aed7d1;outline-offset:2px}.actions{display:flex;flex-wrap:wrap;gap:8px}.actions .btn{flex:1}.preview-card{position:sticky;top:18px;overflow:hidden}.preview-toolbar{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);background:#fafcfd;padding:15px 20px;gap:10px}.preview-toolbar strong{font-size:14px}.preview-toolbar span{font-size:12px;color:var(--sub)}.preview-wrap{padding:30px 29px 35px}.document{font-family:"Times New Roman",Times,serif;font-size:16px;line-height:1.5;color:#171717;white-space:normal;overflow-wrap:anywhere;min-height:280px}.document .doc-title{text-align:center;font-size:18px;font-weight:700;margin-bottom:30px;letter-spacing:.2px}.document .doc-row{margin:0 0 18px;white-space:pre-wrap}.document .doc-label{font-weight:700}.document .doc-paragraph{margin:13px 0;white-space:pre-wrap}.document .doc-empty{color:#86939d;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:13px;text-align:center;padding:55px 8px}.preview-foot{border-top:1px solid var(--line);padding:16px 20px;display:flex;flex-wrap:wrap;gap:8px}.preview-foot .btn{flex:1}.privacy{margin:14px 0 0;color:var(--sub);font-size:12px}.privacy b{color:#526472}
+    .library{margin-top:22px}.library-title{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:16px}.library-title h2{font-size:18px;margin:0}.library-pad{padding:22px}.library-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.note-item{border:1px solid var(--line);border-radius:12px;background:#fff;padding:14px;min-width:0}.note-top{display:flex;justify-content:space-between;align-items:center;gap:5px}.note-item h3{font-size:14px;line-height:1.4;margin:4px 0 6px;overflow-wrap:anywhere}.note-meta{font-size:12px;color:var(--sub)}.note-actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}.note-actions .btn{padding:7px 10px;font-size:12px;min-height:34px}.empty-list{padding:24px;color:var(--sub);background:#f8fafb;border:1px dashed var(--line);border-radius:12px;text-align:center;font-size:13px;grid-column:1/-1}.library-tools{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}.library-tools input{flex:1;min-width:140px}.footnote{text-align:center;font-size:12px;color:var(--sub);margin:22px 0 0}.toast{position:fixed;z-index:20;bottom:calc(20px + env(safe-area-inset-bottom));left:50%;transform:translateX(-50%) translateY(20px);padding:12px 18px;background:var(--navy);color:#fff;border-radius:11px;box-shadow:0 8px 24px #0003;font-size:13px;opacity:0;pointer-events:none;transition:.22s;max-width:90vw;text-align:center}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}.hidden{display:none!important}
+    .auth-wrap{min-height:calc(100vh - 100px);display:grid;place-items:center;padding:25px 16px 65px}.auth-card{max-width:460px;width:100%;padding:30px}.auth-icon{width:55px;height:55px;background:var(--soft);color:var(--teal);display:grid;place-items:center;font-size:30px;border-radius:17px;margin-bottom:15px}.auth-card h1{font-size:27px;letter-spacing:-.5px;margin:0 0 6px}.auth-card p{font-size:14px;color:var(--sub);margin:0 0 23px}.auth-card .btn-primary{width:100%;font-size:15px;min-height:46px}.auth-message{font-size:13px;color:var(--danger);min-height:19px;margin:10px 0}.auth-notice{background:#f5f8fa;padding:13px;border:1px solid var(--line);border-radius:10px;color:#526472;font-size:12px;margin-top:15px}.auth-username{color:#fff;font-size:12px;font-weight:600}.lock-btn{border:1px solid #567080;background:transparent;color:#fff;padding:8px 12px;border-radius:10px;font-size:12px;font-weight:700}.auth-bar{display:flex;align-items:center;gap:8px}.auth-bottom{border-top:1px solid var(--line);padding-top:15px;margin-top:18px}.auth-bottom button{font-size:13px;border:0;background:transparent;color:var(--teal);font-weight:700;padding:3px 0}.auth-description{margin:8px 0 0!important;font-size:12px!important}.auth-label{font-size:12px;color:var(--sub)}
+    @media(max-width:850px){.container{padding:22px 13px 85px}.layout{grid-template-columns:1fr}.preview-card{position:static}.intro h1{font-size:24px}.pad{padding:20px}.library-list{grid-template-columns:1fr}.preview-wrap{padding:25px 22px}.status{max-width:145px;overflow:hidden;text-overflow:ellipsis}}
+    @media(max-width:450px){.grid2{grid-template-columns:1fr;gap:0}.topbar{padding-left:15px;padding-right:15px}.brand-title{font-size:18px}.mark{width:38px;height:38px}.intro{align-items:start}.intro p{font-size:13px}.preview-foot .btn{min-width:calc(50% - 8px)}.actions .btn{min-width:calc(50% - 8px)}.card-header{align-items:start}}
+    @media print{html,body{background:#fff!important}.topbar,.container,.toast{display:none!important}#print-sheet{display:block!important;position:static!important;margin:0 auto!important;width:100%!important;max-width:100%!important}#print-sheet .document{font-family:"Times New Roman",Times,serif;font-size:12pt;line-height:1.5;min-height:0;color:#000}#print-sheet .document .doc-title{font-size:14pt}#print-sheet .doc-paragraph{break-inside:avoid-page} @page{size:A4;margin:22mm 20mm}}
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="top-inner"><div class="brand"><div class="mark" aria-hidden="true">▤</div><div><div class="brand-title">Bilgi Notu</div><div class="brand-sub">Resmî metin oluşturucu · Offline</div></div></div><div class="auth-bar"><span class="auth-username hidden" id="signedUser"></span><button type="button" class="lock-btn hidden" id="lockApp">Kilitle</button><span class="status" id="connectionStatus" aria-live="polite">Hazırlanıyor…</span></div></div>
+  </header>
+  <section id="authArea" class="auth-wrap" aria-label="Güvenli giriş">
+    <div class="card auth-card">
+      <div class="auth-icon" aria-hidden="true">▣</div>
+      <div id="createAccount" class="hidden">
+        <h1>Hesabını oluştur</h1><p>Bu iPhone'da kullanacağın kullanıcı adını ve güçlü bir şifre belirle.</p>
+        <form id="createForm" autocomplete="off">
+          <div class="field"><label for="newUsername">Kullanıcı adı</label><input id="newUsername" type="text" minlength="3" maxlength="40" autocapitalize="none" spellcheck="false" autocomplete="username" placeholder="Örn. gorevli01" required></div>
+          <div class="field"><label for="newPassword">Şifre (en az 12 karakter)</label><input id="newPassword" type="password" minlength="12" maxlength="128" autocomplete="new-password" required></div>
+          <div class="field"><label for="confirmPassword">Şifre tekrarı</label><input id="confirmPassword" type="password" minlength="12" maxlength="128" autocomplete="new-password" required></div>
+          <button type="submit" id="createButton" class="btn btn-primary">Güvenli hesabı oluştur</button>
+        </form>
+      </div>
+      <div id="loginAccount" class="hidden">
+        <h1>Tekrar hoş geldin</h1><p>Bilgi notlarına erişmek için şifrenle giriş yap.</p>
+        <form id="loginForm">
+          <div class="field"><label for="loginUsername">Kullanıcı adı</label><input id="loginUsername" type="text" autocomplete="username" autocapitalize="none" spellcheck="false" required></div>
+          <div class="field"><label for="loginPassword">Şifre</label><input id="loginPassword" type="password" autocomplete="current-password" required></div>
+          <button type="submit" id="loginButton" class="btn btn-primary">Giriş yap</button>
+        </form>
+      </div>
+      <div id="authError" class="auth-message" role="alert" aria-live="polite"></div>
+      <div class="auth-notice"><b>Önemli:</b> Kayıtlar şifrelenerek yalnızca bu tarayıcıda tutulur. Şifreni unutursan kayıtlarını kurtaramayabilirsin. Şifreli yedek almayı unutma.</div>
+      <div class="auth-bottom"><div class="auth-label">Bu sürümün girişi cihaza özeldir; merkezi bir kullanıcı hesabı değildir.</div></div>
+    </div>
+  </section>
+  <main class="container hidden" id="appArea">
+    <div class="intro"><div><div class="eyebrow">Dijital yazım masası</div><h1>Yeni bilgi notu oluştur</h1><p>Alanları doldur, metni kontrol et, cihazında sakla veya paylaş.</p></div><button type="button" id="newNote" class="btn">＋ Yeni not</button></div>
+    <div class="layout">
+      <section class="card pad" aria-labelledby="formTitle">
+        <div class="card-header"><h2 id="formTitle"><span class="number">01</span> Bilgileri gir</h2><span class="hint" id="draftStatus">Yeni taslak</span></div>
+        <form id="noteForm" autocomplete="off">
+          <div class="field"><label for="subject">Konu <span class="required">*</span></label><input id="subject" name="subject" placeholder="Örn. Taksirle Yaralama" maxlength="240" required></div>
+          <div class="field"><label for="location">Olay yeri</label><input id="location" name="location" placeholder="Düzce İli Merkez İlçesi … Köyünde" maxlength="500"><div class="field-note">Cümlenin içinde geçecek biçimiyle yazın; yer eklerini otomatik değiştirmiyoruz.</div></div>
+          <div class="grid2">
+            <div class="field"><label for="eventDate">Olay tarihi</label><input id="eventDate" name="eventDate" type="date"></div>
+            <div class="field"><label for="eventTime">Olay saati</label><input id="eventTime" name="eventTime" type="time"></div>
+          </div>
+          <div class="section-title">Açıklama</div>
+          <div class="field"><label for="incident">Olayın meydana gelişi <span class="required">*</span></label><textarea id="incident" name="incident" rows="6" placeholder="Olayı doğrudan tespitlere dayalı, kronolojik ve resmî bir dille anlatın." required></textarea><div class="field-note">Girişe olay yeri, tarih ve saat eklenecek. Anlatıma bunları tekrar yazmanız gerekmez.</div></div>
+          <div class="field"><label for="followup">Müdahale, tespitler ve sonuç (isteğe bağlı)</label><textarea id="followup" name="followup" rows="4" placeholder="Yaralanma durumu, sevk, olay yeri tespitleri ve diğer somut bilgiler..."></textarea></div>
+          <div class="field"><label for="actionsTaken">Yapılan işlemler (isteğe bağlı)</label><textarea id="actionsTaken" name="actionsTaken" rows="3" placeholder="Bilgi verilen makamlar, yapılan adli / idari işlemler..."></textarea></div>
+          <div class="check-wrap">
+            <label class="checkline" for="prosecutor"><input type="checkbox" id="prosecutor" name="prosecutor"><span>“Olay ile ilgili olarak Nöbetçi Cumhuriyet Savcısından alınan talimat ile adli tahkikata başlanmıştır.” ifadesini ekle.<small>Yalnızca bu işlem gerçekten gerçekleşmişse işaretleyin.</small></span></label>
+            <label class="checkline" for="closing"><input type="checkbox" id="closing" name="closing" checked><span>Notun sonuna “Arz ederim.” ekle.</span></label>
+          </div>
+          <div class="section-title">Taslak işlemleri</div>
+          <div class="actions"><button class="btn btn-primary" id="saveNote" type="submit">▣ Taslağı kaydet</button><button class="btn" type="button" id="copyNote">⧉ Metni kopyala</button></div>
+        </form>
+      </section>
+      <aside class="card preview-card" aria-labelledby="previewTitle">
+        <div class="preview-toolbar"><strong id="previewTitle"><span class="number">02</span> Canlı önizleme</strong><span>A4 / Resmî düzen</span></div>
+        <div class="preview-wrap"><div class="document" id="previewDocument" aria-live="polite"></div><p class="privacy"><b>Gizlilik:</b> Taslaklar cihazda şifrelenir. Bilgiler sunucuya gönderilmez. Paylaştığınız PDF, RTF ve TXT dosyaları şifresizdir. Önemli kayıtları şifreli yedekleyin.</p></div>
+        <div class="preview-foot"><button type="button" class="btn" id="shareNote">↗ Paylaş</button><button type="button" class="btn" id="printNote">▤ PDF / Yazdır</button><button type="button" class="btn" id="wordNote">↓ Word (RTF)</button><button type="button" class="btn" id="txtNote">↓ Metin (.txt)</button></div>
+      </aside>
+    </div>
+    <section class="card library" aria-labelledby="libraryTitle"><div class="library-pad"><div class="library-title"><h2 id="libraryTitle">Kaydedilen bilgi notları</h2><span class="hint" id="noteCount">0 kayıt</span></div><div class="library-tools"><input type="search" id="searchNotes" aria-label="Kayıtlarda ara" placeholder="Konu veya içerikte ara..."><button type="button" class="btn" id="backupNotes">Şifreli yedek al</button><button type="button" class="btn" id="importNotes">Şifreli yedek yükle</button><input type="file" id="importFile" accept=".json,application/json" class="hidden"></div><div id="noteList" class="library-list"></div></div></section>
+    <p class="footnote">Bilgi Notu · İnternetsiz kullanım için tasarlanmıştır. Metni göndermeden önce doğruluğunu kontrol edin.</p>
+  </main>
+  <div id="print-sheet" class="hidden" aria-hidden="true"></div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script src="./app.js" defer></script>
+</body>
+</html>
